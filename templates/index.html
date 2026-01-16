@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>User Management System</h2>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<!-- Add User -->
+<form method="POST">
+    <input type="text" name="name" placeholder="Enter Name" required minlength="3">
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <button type="submit">Add User</button>
+</form>
+
+<!-- Search -->
+<form method="GET">
+    <input type="text" name="search" placeholder="Search user">
+    <button type="submit">Search</button>
+</form>
+
+<!-- Table -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+            <a href="/edit/{{ user.id }}">Edit</a> |
+            <a href="/delete/{{ user.id }}"
+               onclick="return confirm('Are you sure?')">
+               Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
