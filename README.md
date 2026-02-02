@@ -1,53 +1,151 @@
-# User Management Web Application
+# 🚀 User Management Web Application  
+### (Task 1: CRUD Operations + Task 2: Authentication System)
 
-## Project Overview
+## 📌 Project Overview
 This project is a User Management Web Application developed using Python Flask.
-It allows users to add, view, edit, delete, and search user details through
-a web interface. User data is stored permanently using SQLite database.
+It is implemented in two phases as part of the Python Full Stack Web Development Internship.
 
-The project demonstrates end-to-end full stack web development.
+- Task 1: Implemented full CRUD operations
+- Task 2: Extended Task 1 by adding User Authentication (Register, Login, Logout)
+
+The application demonstrates how frontend, backend, database, and authentication
+work together in a real-world full-stack application.
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 - Backend: Python (Flask Framework)
 - Frontend: HTML, CSS
 - Database: SQLite
-- Tools: VS Code, Web Browser
+- Security: Werkzeug (Password Hashing)
+- Tools: VS Code, GitHub, Web Browser
 
 ---
 
-## Project Features
-- Add new users
-- View all users
-- Edit user details
+## 📁 Project Structure
+python-fullstack-project/
+│
+├── app.py
+├── init_db.py
+├── database.db
+├── README.md
+│
+├── templates/
+│   ├── base.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   └── edit.html
+│
+└── static/
+    └── style.css
+
+---
+
+# ✅ TASK 1 – CRUD OPERATIONS
+
+## 🔹 Task 1 Objective
+To build a User Management System that allows:
+- Add users
+- View users
+- Edit users
 - Delete users
-- Search users
-- Flash messages for user actions
+- Store data permanently using SQLite
+
+## 🔄 Task 1 Flow
+1. User submits form data
+2. Flask receives request
+3. Data stored in SQLite database
+4. Records fetched and displayed in table
+5. Edit/Delete updates database
 
 ---
 
-## Project Flow
-1. User enters name and email in the HTML form
-2. Form data is sent to Flask backend using POST request
-3. Flask stores data in SQLite database
-4. Flask retrieves user records from database
-5. Data is displayed dynamically in an HTML table
-6. Edit and Delete operations update the database in real time
+# 🔐 TASK 2 – USER AUTHENTICATION SYSTEM
+
+## 🔹 Task 2 Objective
+To enhance Task 1 by implementing secure authentication so that only logged-in users
+can access the dashboard and perform CRUD operations.
+
+## ✨ Task 2 Features
+- User Registration
+- User Login
+- Password Hashing
+- Session Management
+- Protected Dashboard
+- Logout
 
 ---
 
-## How to Run the Project
-1. Install Python and Flask
-2. Open project folder in VS Code
-3. Run the command: python app.py
-4. Open browser and go to http://127.0.0.1:5000/
+## 🗄️ Database Design
+
+### auth_users Table
+- id (Primary Key)
+- username (Unique)
+- password (Hashed)
+
+### users Table
+- id
+- name
+- email
 
 ---
 
-## Learning Outcome
-This project helped in understanding:
-- Full stack web application architecture
-- Frontend and backend interaction
-- Database integration with Flask
-- CRUD operations in real-world applications
+## 🔐 Authentication Flow
+
+### Registration
+1. User enters username and password
+2. Password is hashed
+3. Data stored securely
+4. Redirect to login
+
+### Login
+1. User enters credentials
+2. Password hash is verified
+3. Session is created
+4. User redirected to dashboard
+
+### Session Management
+- Session checked before accessing dashboard
+- Unauthorized users redirected to login
+
+### Logout
+- Session cleared
+- User redirected to login page
+
+---
+
+## ▶️ How to Run the Project
+1. Install dependencies:
+   pip install flask werkzeug
+2. Initialize database:
+   python init_db.py
+3. Run the app:
+   python app.py
+4. Open browser:
+   http://127.0.0.1:5000/register
+
+---
+
+## 📸 Screenshots
+- Registration Page
+- Login Page
+- Dashboard
+- Edit User
+- Delete User
+
+---
+
+## 🎯 Learning Outcomes
+- Full stack web development
+- CRUD operations
+- Secure authentication
+- Session handling
+- Real-world Flask application structure
+
+---
+
+## 🎤 Viva Explanation
+This project implements a User Management System using Flask.
+Task 1 covers CRUD operations, and Task 2 extends it with authentication
+using password hashing and session management.
