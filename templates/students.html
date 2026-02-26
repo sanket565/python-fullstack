@@ -4,19 +4,25 @@
     <title>Students</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
 
 <div class="container">
-    <div class="card">
-        <h2>Students Management</h2>
 
-        <nav>
-            <a href="/add-student">Add Student</a>
+    <div class="card">
+
+        <h2>📚 Students Management</h2>
+
+        <!-- NAVIGATION -->
+        <nav class="nav-bar">
             <a href="/dashboard">Dashboard</a>
+            <a href="/add-student">Add Student</a>
             <a href="/logout" class="logout">Logout</a>
         </nav>
 
+        <!-- STUDENT TABLE -->
         <table>
+
             <tr>
                 <th>Name</th>
                 <th>Email</th>
@@ -26,17 +32,37 @@
 
             {% for s in students %}
             <tr>
+
                 <td>{{ s.name }}</td>
                 <td>{{ s.email }}</td>
                 <td>{{ s.course }}</td>
+
                 <td>
-                    <a class="action-btn edit" href="/edit/{{ s.id }}">Edit</a>
-                    <a class="action-btn delete" href="/delete/{{ s.id }}">Delete</a>
+
+                    <!-- EDIT -->
+                    <a class="action-btn edit"
+                       href="/edit/{{ s.id }}">
+                       Edit
+                    </a>
+
+                    <!-- ADMIN ONLY DELETE -->
+                    {% if session['role']=="admin" %}
+                    <a class="action-btn delete"
+                       href="/delete/{{ s.id }}"
+                       onclick="return confirm('Delete this student?')">
+                       Delete
+                    </a>
+                    {% endif %}
+
                 </td>
+
             </tr>
             {% endfor %}
+
         </table>
+
     </div>
+
 </div>
 
 </body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <!-- HEADER -->
+    <div class="admin-header">
+        <h2>🛠 Admin Control Panel</h2>
+
+        <div>
+            <a href="/dashboard" class="nav-btn">Dashboard</a>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+
+    <!-- USER TABLE -->
+    <div class="table-card">
+
+        <h3>👥 Registered Users</h3>
+
+        <table class="admin-table">
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>User Role</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for u in users %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ u.username }}</td>
+                    <td>
+                        <span class="role {{u.role}}">
+                            {{ u.role }}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="active">Active</span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

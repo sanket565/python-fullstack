@@ -1,29 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+
     <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <div class="card">
-        <h2>Create Account</h2>
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h2>📝 Create Account</h2>
+        <p class="subtitle">Register to access Student Management System</p>
 
         <form method="post">
-            <label>Username</label>
-            <input type="text" name="username" required>
 
-            <label>Password</label>
-            <input type="password" name="password" required>
+            <div class="input-group">
+                <label>Username</label>
+                <input 
+                    type="text"
+                    name="username"
+                    placeholder="Enter username"
+                    required>
+            </div>
 
-            <button type="submit">Register</button>
+            <div class="input-group">
+                <label>Password</label>
+                <input 
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    required>
+            </div>
+
+            <div class="input-group">
+                <label>Select Role</label>
+                <select name="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <button class="auth-btn">
+                Register
+            </button>
+
         </form>
 
-        <p class="center-text">
-            Already have an account? <a href="/login">Login</a>
+        <p class="bottom-text">
+            Already have an account?
+            <a href="/login">Login Here</a>
         </p>
+
     </div>
+
 </div>
 
 </body>

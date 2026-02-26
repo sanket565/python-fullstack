@@ -124,51 +124,361 @@ table td {
     text-align: center;
 }
 
-/* ---------- Dashboard Enhancements ---------- */
+/* ---------- DASHBOARD PREMIUM ---------- */
 
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f6f9;
 }
 
-.dashboard-card {
-    background: linear-gradient(135deg, #4a6cf7, #6f8cff);
-    color: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Layout */
+.main-layout{
+display:flex;
+height:100vh;
 }
 
-.dashboard-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+/* Sidebar */
+.sidebar{
+width:230px;
+background:#1e293b;
+color:white;
+padding:20px;
+display:flex;
+flex-direction:column;
 }
 
-.dashboard-card h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
+.sidebar h2{
+text-align:center;
+margin-bottom:30px;
 }
 
-.dashboard-card p {
-    font-size: 14px;
-    opacity: 0.9;
+.sidebar a{
+color:white;
+text-decoration:none;
+padding:12px;
+margin:5px 0;
+border-radius:6px;
+display:block;
 }
 
-.dashboard-card a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 18px;
-    background: #fff;
-    color: #4a6cf7;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
+.sidebar a:hover{
+background:#334155;
 }
 
-.dashboard-card a:hover {
-    background: #e6ebff;
+.logout{
+margin-top:auto;
+background:#dc2626;
+}
+
+/* Content */
+.content{
+flex:1;
+padding:25px;
+}
+
+/* Topbar */
+.topbar{
+background:white;
+padding:15px 25px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Cards Grid */
+.card-grid{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+/* Cards */
+.dashboard-card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+text-align:center;
+transition:0.3s;
+}
+
+.dashboard-card:hover{
+transform:translateY(-8px);
+}
+
+.dashboard-card .icon{
+font-size:35px;
+color:#667eea;
+margin-bottom:10px;
+}
+
+.dashboard-card a{
+display:inline-block;
+margin-top:12px;
+padding:8px 18px;
+background:#667eea;
+color:white;
+border-radius:6px;
+text-decoration:none;
+}
+
+.dashboard-card.admin{
+border-top:5px solid #dc2626;
+}
+/* ---------- AUTH PAGES ---------- */
+
+.auth-container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.auth-card{
+    background:white;
+    padding:35px;
+    width:380px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    text-align:center;
+}
+
+.subtitle{
+    color:gray;
+    margin-bottom:20px;
+}
+
+/* Input section */
+.input-group{
+    text-align:left;
+    margin-top:15px;
+}
+
+.input-group label{
+    font-size:14px;
+    font-weight:bold;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* Button */
+.auth-btn{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    background:#667eea;
+    color:white;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.auth-btn:hover{
+    background:#4c5bd4;
+}
+
+.bottom-text{
+    margin-top:15px;
+}
+
+/* ---------- ADMIN PANEL ---------- */
+
+.admin-container{
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    padding:30px;
+}
+
+/* Header */
+.admin-header{
+    background:white;
+    padding:15px 25px;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Buttons */
+.nav-btn{
+    background:#667eea;
+    color:white;
+    padding:8px 15px;
+    border-radius:6px;
+    text-decoration:none;
+    margin-right:10px;
+}
+
+.logout-btn{
+    background:red;
+    color:white;
+    padding:8px 15px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+/* Table Card */
+.table-card{
+    background:white;
+    margin-top:30px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Table */
+.admin-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.admin-table th{
+    background:#667eea;
+    color:white;
+    padding:12px;
+}
+
+.admin-table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.admin-table tr:hover{
+    background:#f5f5f5;
+}
+
+/* Role Badge */
+.role{
+    padding:5px 12px;
+    border-radius:20px;
+    color:white;
+}
+
+.role.admin{
+    background:#ff4b2b;
+}
+
+.role.user{
+    background:#28a745;
+}
+
+/* Status */
+.active{
+    background:#28a745;
+    color:white;
+    padding:5px 10px;
+    border-radius:20px;
+}
+/* ---------- LOGIN PREMIUM UI ---------- */
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Layout */
+.login-wrapper{
+    height:100vh;
+    display:flex;
+}
+
+/* Left Side */
+.login-info{
+    flex:1;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:60px;
+}
+
+.login-info h1{
+    font-size:40px;
+}
+
+.login-info p{
+    margin-top:15px;
+    font-size:18px;
+    opacity:0.9;
+}
+
+/* Right Side Card */
+.login-card{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:#f5f6fa;
+}
+
+.login-card h2{
+    margin-bottom:5px;
+}
+
+.subtitle{
+    color:gray;
+    margin-bottom:25px;
+}
+
+/* Input */
+.input-box{
+    background:white;
+    display:flex;
+    align-items:center;
+    margin:12px 0;
+    padding:10px;
+    border-radius:8px;
+    width:300px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.input-box i{
+    margin-right:10px;
+    color:#667eea;
+}
+
+.input-box input{
+    border:none;
+    outline:none;
+    width:100%;
+    font-size:15px;
+}
+
+/* Button */
+.login-btn{
+    width:320px;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    background:#667eea;
+    color:white;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.login-btn:hover{
+    background:#4c5bd4;
+}
+
+/* Bottom */
+.bottom-text{
+    margin-top:20px;
 }
